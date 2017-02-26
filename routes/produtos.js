@@ -1,12 +1,12 @@
  var express = require('express');
  var router = express.Router();
- var Task=require('../models/Produtos');
+ var Produtos=require('../models/Produtos');
 
 router.get('/:id?',function(req,res,next){
 
 if(req.params.id){
 
-Produto.getProdutoById(req.params.id,function(err,rows){
+Produtos.getProdutoById(req.params.id,function(err,rows){
 
 if(err)
   {
@@ -19,7 +19,7 @@ if(err)
  }
  else{
 
-Produto.getAllProdutos(function(err,rows){
+Produtos.getAllProdutos(function(err,rows){
 
 if(err)
   {
@@ -37,7 +37,7 @@ if(err)
 
  router.post('/',function(req,res,next){
 
-Produto.addProduto(req.body,function(err,count){
+Produtos.addProduto(req.body,function(err,count){
   if(err)
   {
   res.json(err);
@@ -51,7 +51,7 @@ Produto.addProduto(req.body,function(err,count){
 
  router.delete('/:id',function(req,res,next){
 
-Produto.deleteProduto(req.params.id,function(err,count){
+Produtos.deleteProduto(req.params.id,function(err,count){
 
 if(err)
   {
@@ -66,7 +66,7 @@ if(err)
  });
  router.put('/:id',function(req,res,next){
 
-Produto.updateProduto(req.params.id,req.body,function(err,rows){
+Produtos.updateProduto(req.params.id,req.body,function(err,rows){
 
 if(err)
   {

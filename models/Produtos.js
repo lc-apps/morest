@@ -1,6 +1,6 @@
 var db=require('../dbconnection'); //reference of dbconnection.js
 
-var Produto={
+var Produtos={
 
 getAllProdutos:function(callback){
 
@@ -26,4 +26,4 @@ return db.query("select * from produtos where Id=?",[id],callback);
  }
 
 };
- module.exports=Produto;
+ module.exports=Produtos;

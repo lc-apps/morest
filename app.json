@@ -1,0 +1,8 @@
+{
+  "name": "Restfull",
+  "description": "Um simples servidor node",
+  "repository": "https://github.com/lc-apps/morest.git",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["app", "multi", "ofertas"],
+  "image": "heroku/nodejs"
+}

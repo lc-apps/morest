@@ -1,6 +1,0 @@
-{
-  "name": "Restfull",
-  "description": "Um simples servidor node",
-  "keywords": ["app", "multi", "ofertas"],
-  "image": "heroku/nodejs"
-}

@@ -27,7 +27,7 @@
 
   "repository": {
     "type": "git",
-    "url": "https://github.com/lc-apps/morest.git"
+    "url": "https://git.heroku.com/morest.git"
   },
 
   "keywords": [

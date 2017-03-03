@@ -8,7 +8,7 @@ return db.query("Select * from produtos",callback);
 
 },
 
- getPrudutoById:function(id,callback){
+ getProdutoById:function(id,callback){
 
 return db.query("select * from produtos where Id=?",[id],callback);
  },

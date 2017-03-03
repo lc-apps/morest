@@ -17,6 +17,7 @@ if(err)
   }
   });
  }
+
  else{
 
 Produtos.getAllProdutos(function(err,rows){

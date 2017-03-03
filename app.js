@@ -10,7 +10,7 @@ var cors = require('cors');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
-var Produtos = require('./routes/Produtos');
+var Produtos = require('./routes/produtos');
 
 var app = express();
 

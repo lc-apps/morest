@@ -28,7 +28,8 @@ if(err)
   }
   else
   {
-  res.json(rows);
+    res.json(rows);
+
   }
 
  });
@@ -47,6 +48,24 @@ Produtos.addProduto(req.body,function(err,count){
   res.json(req.body);//or return count for 1 &amp;amp;amp; 0
   }
   });
+ });
+
+ router.post('/count',function(req,res,next){
+
+   Produtos.getAllProdutoscount(function(err,rows){
+
+   if(err)
+     {
+     res.json(err);
+     }
+     else
+     {
+       res.json(rows);
+
+     }
+
+    });
+
  });
 
 

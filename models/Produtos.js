@@ -8,6 +8,12 @@ return db.query("Select * from produtos",callback);
 
 },
 
+getAllProdutoscount:function(callback){
+
+return db.query("Select count(*) from produtos",callback);
+
+},
+
  getProdutoById:function(id,callback){
 
 return db.query("select * from produtos where Id=?",[id],callback);

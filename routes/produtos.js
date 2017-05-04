@@ -82,23 +82,6 @@ if(err)
   });
  });
 
-// select por Nome
-
-router.get('/:categoria?',function(req,res,next){
-
-Produtos.categoriaProduto(req.params.categoria,function(err,count){
-
-if(err)
- {
- res.json(err);
- }
- else
- {
- res.json(count);
- }
-
-});
-});
 
 
 

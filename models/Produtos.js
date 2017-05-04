@@ -26,11 +26,7 @@ return db.query("select * from produtos where Id=?",[id],callback);
   return db.query("update produtos set Nome=?,Status=? where Id=?",[Produto.Nome,Produto.Status,id],callback);
  }
 
- // select por nome
 
- categoriaProduto:function(categoria,callback){
-  return db.query("select *  from produtos where categoria=?",[categoria],callback);
- },
 
 
 };

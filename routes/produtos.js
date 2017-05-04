@@ -50,23 +50,6 @@ Produtos.addProduto(req.body,function(err,count){
   });
  });
 
- router.post('/count',function(req,res,next){
-
-   Produtos.getAllProdutoscount(function(err,rows){
-
-   if(err)
-     {
-     res.json(err);
-     }
-     else
-     {
-       res.json(rows);
-
-     }
-
-    });
-
- });
 
 
  router.delete('/:id',function(req,res,next){
@@ -98,4 +81,25 @@ if(err)
   }
   });
  });
+
+// select por Nome
+
+router.get('/:categoria',function(req,res,next){
+
+Produtos.categoriaProduto(req.params.categoria,function(err,count){
+
+if(err)
+ {
+ res.json(err);
+ }
+ else
+ {
+ res.json(count);
+ }
+
+});
+});
+
+
+
  module.exports=router;

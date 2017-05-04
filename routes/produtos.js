@@ -84,7 +84,7 @@ if(err)
 
 // select por Nome
 
-router.get('/:categoria',function(req,res,next){
+router.get('/:categoria?',function(req,res,next){
 
 Produtos.categoriaProduto(req.params.categoria,function(err,count){
 

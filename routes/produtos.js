@@ -67,6 +67,25 @@ if(err)
 
 });
  });
+
+ router.get('/nome/:nome?',function(req,res,next){
+
+Produtos.nomeProduto(req.params.nome,function(err,rows){
+
+if(err)
+  {
+  res.json(err);
+  console.log('teste',err);
+  }
+  else
+  {
+  res.json(rows);
+  }
+
+});
+ });
+
+
  router.put('/:id',function(req,res,next){
 
 Produtos.updateProduto(req.params.id,req.body,function(err,rows){

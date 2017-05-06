@@ -4,6 +4,7 @@ var Produtos={
 
 getAllProdutos:function(callback){
 
+
 return db.query("Select * from produtos",callback);
 
 },
@@ -21,6 +22,12 @@ return db.query("select * from produtos where Id=?",[id],callback);
  deleteProduto:function(id,callback){
   return db.query("delete from produtos where Id=?",[id],callback);
  },
+
+ nomeProduto:function(nome,callback){
+   console.log('parametro',nome);
+  return db.query("SELECT * FROM produtos WHERE produto like '%" + nome + "%' ",callback);
+ },
+
 
  updateProduto:function(id,Task,callback){
   return db.query("update produtos set Nome=?,Status=? where Id=?",[Produto.Nome,Produto.Status,id],callback);

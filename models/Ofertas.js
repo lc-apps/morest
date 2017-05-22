@@ -1,37 +1,36 @@
 var db=require('../dbconnection'); //reference of dbconnection.js
 
-var Campanhas={
+var Ofertas={
 
-getAllCampanhas:function(callback){
+getAllOfertas:function(callback){
 
 
-return db.query("SELECT * FROM campanhas_produtos" +
-                " INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha" +
-                " INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto" +
+return db.query("SELECT * FROM campanhas" +
+                " INNER JOIN estabelecimentos ON estabelecimentos.id = campanhas.idestabelecimento" +
+                " INNER JOIN estabelecimentos_tipos ON estabelecimentos_tipos.id = estabelecimentos.idtipo" +
                 " WHERE campanhas.data_inicio <= CURDATE()"+
                 " AND campanhas.data_fim >= CURDATE()"+
-                " AND campanhas.status =1 "+
-                " AND campanhas_produtos.status =1 " ,callback);
+                " AND campanhas.status =1 " ,callback);
 
 },
 
 
 
 
- getCampanhaById:function(id,callback){
+ getOfertasById:function(id,callback){
 
 return db.query("select * from produtos where Id=?",[id],callback);
  },
 
 
- nomeCampanha:function(nome,callback){
+ nomeOfertas:function(nome,callback){
    console.log('parametro',nome);
   return db.query("SELECT * FROM produtos WHERE produto like '%" + nome + "%' ",callback);
  },
 
 
 };
- module.exports=Campanhas;
+ module.exports=Ofertas;
 /*
 
 $sql = "SELECT * FROM campanhas_produtos ";

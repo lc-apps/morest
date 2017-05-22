@@ -1,12 +1,12 @@
  var express = require('express');
  var router = express.Router();
- var Campanhas = require('../models/Campanhas');
+ var Ofertas = require('../models/Ofertas');
 
  router.get('/:id?', function(req, res, next) {
 
      if (req.params.id) {
 
-         Campanhas.getCampanhaById(req.params.id, function(err, rows) {
+         Ofertas.getOfertasById(req.params.id, function(err, rows) {
 
              if (err) {
                  res.json(err);
@@ -16,7 +16,7 @@
          });
      } else {
 
-         Campanhas.getAllCampanhas(function(err, rows) {
+         Ofertas.getAllOfertas(function(err, rows) {
            console.log('entrou no getAllCampanhas');
              if (err) {
                  res.json(err);
@@ -32,7 +32,7 @@
 
  router.get('/nome/:nome?', function(req, res, next) {
 
-     Campanhas.nomeCampanha(req.params.nome, function(err, rows) {
+     Ofertas.nomeOfertas(req.params.nome, function(err, rows) {
 
          if (err) {
              res.json(err);

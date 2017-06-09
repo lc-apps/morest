@@ -7,7 +7,6 @@
      if (req.params.id) {
 
          Campanhas.getCampanhaById(req.params.id, function(err, rows) {
-
              if (err) {
                  res.json(err);
              } else {

@@ -17,7 +17,6 @@
      } else {
 
          Ofertas.getAllOfertas(function(err, rows) {
-           console.log('entrou no getAllCampanhas');
              if (err) {
                  res.json(err);
              } else {

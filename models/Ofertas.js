@@ -20,7 +20,7 @@ return db.query(" SELECT campanhas.descricao AS camp_desc, data_inicio, data_fim
 
  getOfertasById:function(id,callback){
 
-return db.query("select * from produtos where Id=?",[id],callback);
+return db.query("",[id],callback);
  },
 
 

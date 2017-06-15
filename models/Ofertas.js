@@ -5,7 +5,7 @@ var Ofertas={
 getAllOfertas:function(callback){
 
 
-return db.query(" SELECT campanhas.descricao AS camp_desc, data_inicio, data_fim, estabelecimentos.foto AS logo_mercado,"+
+return db.query(" SELECT campanhas.id, campanhas.descricao AS camp_desc, data_inicio, data_fim, estabelecimentos.foto AS logo_mercado,"+
                 " estabelecimentos.nome_fantasia AS nome_mercado, estabelecimentos_tipos.descricao AS tipo_comercio FROM campanhas" +
                 " INNER JOIN estabelecimentos ON estabelecimentos.id = campanhas.idestabelecimento" +
                 " INNER JOIN estabelecimentos_tipos ON estabelecimentos_tipos.id = estabelecimentos.idtipo" +

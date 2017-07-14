@@ -3,7 +3,7 @@ var connection=mysql.createPool({
 
 host:'mysql02.hstbr.net',
  user:'multiofertas',
- password:'msualt2016',
+ password:'msualt2017',
  database:'multiofertas_bd'
 
 });

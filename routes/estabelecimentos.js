@@ -31,7 +31,7 @@
 
  router.get('/nome/:nome?', function(req, res, next) {
 
-     Estabelecimentos.nomeEstabelecimento(req.params.nome, function(err, rows) {
+     Estabelecimentos.nomeEstabelecimentos(req.params.nome, function(err, rows) {
 
          if (err) {
              res.json(err);

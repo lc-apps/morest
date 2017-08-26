@@ -13,7 +13,7 @@ var users = require('./routes/users');
 var Produtos = require('./routes/produtos');
 var Campanhas = require('./routes/campanhas');
 var Ofertas = require('./routes/ofertas');
-var Estabelecimentos = require('./routes/ofertas');
+var Estabelecimentos = require('./routes/estabelecimentos');
 
 var app = express();
 

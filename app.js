@@ -13,6 +13,7 @@ var users = require('./routes/users');
 var Produtos = require('./routes/produtos');
 var Campanhas = require('./routes/campanhas');
 var Ofertas = require('./routes/ofertas');
+var Estabelecimentos = require('./routes/ofertas');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use('/users', users);
 app.use('/Ofertas', Ofertas);
 app.use('/Produtos', Produtos);
 app.use('/Campanhas', Campanhas);
+app.use('/Estabelecimentos', Estabelecimentos);
 
 
 // catch 404 and forward to error handler

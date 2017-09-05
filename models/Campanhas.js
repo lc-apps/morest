@@ -30,7 +30,6 @@ return db.query("SELECT * , MIN(preco_por) as de," +
               " AND campanhas.data_fim >= CURDATE( ) " +
               " AND campanhas.status =1" +
               " AND campanhas_produtos.status =1" +
-              " group by produtos.id.status =1" +
               " group by produtos.id ",callback);
 
 },

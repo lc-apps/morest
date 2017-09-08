@@ -19,7 +19,7 @@ return db.query("SELECT * FROM campanhas_produtos" +
 */
 // seleciona agrupado
 getAllCampanhas:function(callback){
-return db.query("SELECT * , MIN(preco_por) as de," +
+return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
               " max(preco_por) as  ate ," +
               " count(produtos.id) as ofertas," +
               " count(idestabelecimento) as mercados" +

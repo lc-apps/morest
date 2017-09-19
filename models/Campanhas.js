@@ -16,7 +16,24 @@ return db.query("SELECT * FROM campanhas_produtos" +
                 " AND campanhas_produtos.status =1 ",callback);
 
 },
+
+// Contar todas as ofertas
 */
+
+/*
+SELECT count(produtos.id) as ofertas
+              FROM campanhas_produtos
+              INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha
+              INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto
+              WHERE campanhas.data_inicio <= CURDATE( )
+              AND campanhas.data_fim >= CURDATE( )
+               AND campanhas.status =1
+              AND campanhas_produtos.status =1
+
+*/
+
+
+
 // seleciona agrupado
 getAllCampanhas:function(callback){
 return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
@@ -38,15 +55,15 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
 
  getCampanhaById:function(id,callback){
  console.log('parametro',id);
- return db.query("SELECT * FROM campanhas_produtos" +
-                 " INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha" +
-                 " INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto" +
-                 " WHERE campanhas.data_inicio <= CURDATE()"+
-                 " AND campanhas.data_fim >= CURDATE()"+
-                 " AND campanhas.status =1 "+
-                 ",. AND campanhas_produtos.status =1 "+
-                 " AND campanhas_produtos.idcampanha = " + id + "" ,callback);
- },
+ return db.query("SELECT * FROM campanhas_produtos"+
+                "  INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha"+
+                "  INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto"+
+                "  WHERE campanhas.data_inicio <= CURDATE( ) "+
+                "  AND campanhas.data_fim >= CURDATE( ) "+
+                "  AND campanhas.status =1"+
+                "  AND campanhas_produtos.status =1"+
+                "  AND produtos.id =  " + id + " " ,callback);
+},
 
 
  nomeCampanha:function(nome,callback){

@@ -55,9 +55,11 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
 
  getCampanhaById:function(id,callback){
  console.log('parametro',id);
- return db.query("SELECT * FROM campanhas_produtos"+
+ return db.query(" SELECT preco_de, preco_por, data_fim, produto, produtos.foto AS foto_produto, nome_fantasia, estabelecimentos.foto AS logo, campanhas.id, campanhas.descricao"+
+                "  FROM campanhas_produtos"+
                 "  INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha"+
                 "  INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto"+
+                "  INNER JOIN estabelecimentos ON estabelecimentos.id = campanhas.idestabelecimento"+
                 "  WHERE campanhas.data_inicio <= CURDATE( ) "+
                 "  AND campanhas.data_fim >= CURDATE( ) "+
                 "  AND campanhas.status =1"+

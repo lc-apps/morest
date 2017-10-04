@@ -67,10 +67,21 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
                 "  AND produtos.id =  " + id + " " ,callback);
 },
 
-
+//SELECT * FROM produtos WHERE produto like '%" + nome + "%' "
  nomeCampanha:function(nome,callback){
    console.log('parametro',nome);
-  return db.query("SELECT * FROM produtos WHERE produto  " + nome + " ",callback);
+  return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
+                " max(preco_por) as  ate ," +
+                " count(produtos.id) as ofertas" +
+                " FROM campanhas_produtos" +
+                " INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha" +
+                " INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto" +
+                " WHERE campanhas.data_inicio <= CURDATE( ) " +
+                " AND campanhas.data_fim >= CURDATE( ) " +
+                " AND campanhas.status =1" +
+                " AND campanhas_produtos.status =1" +
+                " AND produto like '%" + nome + "%' "+
+                " group by produtos.id ",callback);
  },
 
 

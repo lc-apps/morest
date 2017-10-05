@@ -77,18 +77,17 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
   console.log('palavras',palavras);
   console.log('tamanho',tamanho);
   
-  return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
-                " max(preco_por) as  ate ," +
-                " count(produtos.id) as ofertas" +
-                " FROM campanhas_produtos" +
-                " INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha" +
-                " INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto" +
-                " WHERE campanhas.data_inicio <= CURDATE( ) " +
-                " AND campanhas.data_fim >= CURDATE( ) " +
-                " AND campanhas.status =1" +
-                " AND campanhas_produtos.status =1" +
-                " AND produto like '%" + nome + "%' "+
-                " group by produtos.id ",callback);
+  var sql = '"SELECT idproduto,produto,foto , MIN(preco_por) as de," +';
+  sql += sql ='" max(preco_por) as  ate ," +  " count(produtos.id) as ofertas" +  " FROM campanhas_produtos" +';
+  sql += sql ='" INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha" + " INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto" +  " WHERE campanhas.data_inicio <= CURDATE( ) " +';
+  sql += sql ='" AND campanhas.status =1" + " AND campanhas_produtos.status =1" +';
+  sql += sql ='" AND produto like '%" + nome + "%' "+';
+  sql += sql ='" group by produtos.id ",callback);';
+
+
+  console.log('sql',sql);
+
+  return db.query(sql);
  },
 
 

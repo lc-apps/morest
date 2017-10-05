@@ -84,12 +84,12 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
   sql += sql =" AND produto like '%";
   sql += sql = palavras[0];
   sql += sql ="%' ";
-  sql += sql =" group by produtos.id ,callback;";
+  sql += sql =" group by produtos.id ";
 
 
   console.log('sql',sql);
 
-  return db.query(sql);
+  return db.query(sql,callback);
  },
 
 

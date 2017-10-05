@@ -71,7 +71,7 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
  nomeCampanha:function(nome,callback){
    console.log('parametro',nome);
   
-  var palavras = str.split(" ");
+  var palavras = nome.split(" ");
 
   var tamanho = palavras.length;
   console.log('palavras',palavras);

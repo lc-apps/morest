@@ -70,6 +70,13 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
 //SELECT * FROM produtos WHERE produto like '%" + nome + "%' "
  nomeCampanha:function(nome,callback){
    console.log('parametro',nome);
+  
+  var palavras = str.split(" ");
+
+  var tamanho = palavras.length;
+  console.log('palavras',palavras);
+  console.log('tamanho',tamanho);
+  
   return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
                 " max(preco_por) as  ate ," +
                 " count(produtos.id) as ofertas" +

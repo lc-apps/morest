@@ -36,7 +36,7 @@ SELECT count(produtos.id) as ofertas
 
 // seleciona agrupado
 getAllCampanhas:function(callback){
-return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
+return db.query("SELECT idproduto,produto,foto1 , MIN(preco_por) as de," +
               " max(preco_por) as  ate ," +
               " count(produtos.id) as ofertas" +
               " FROM campanhas_produtos" +
@@ -55,7 +55,7 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
 
  getCampanhaById:function(id,callback){
  console.log('parametro',id);
- return db.query(" SELECT preco_de, preco_por, data_fim, produto, produtos.foto AS foto_produto, nome_fantasia, estabelecimentos.foto AS logo, campanhas.id, campanhas.descricao"+
+ return db.query(" SELECT preco_de, preco_por, data_fim, produto, produtos.foto1 , nome_fantasia, estabelecimentos.foto AS logo, campanhas.id, campanhas.descricao"+
                 "  FROM campanhas_produtos"+
                 "  INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha"+
                 "  INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto"+
@@ -70,14 +70,14 @@ return db.query("SELECT idproduto,produto,foto , MIN(preco_por) as de," +
 //SELECT * FROM produtos WHERE produto like '%" + nome + "%' "
  nomeCampanha:function(nome,callback){
    console.log('parametro',nome);
-  
+
   var palavras = nome.split(" ");
 
   var tamanho = palavras.length;
   console.log('palavras',palavras);
   console.log('tamanho',tamanho);
-  
-  var sql = "SELECT idproduto,produto,foto , MIN(preco_por) as de,";
+
+  var sql = "SELECT idproduto,produto,foto1 , MIN(preco_por) as de,";
   sql += sql =" max(preco_por) as  ate , count(produtos.id) as ofertas FROM campanhas_produtos";
   sql += sql =" INNER JOIN campanhas ON campanhas.id = campanhas_produtos.idcampanha  INNER JOIN produtos ON produtos.id = campanhas_produtos.idproduto  WHERE campanhas.data_inicio <= CURDATE( )";
   sql += sql =" AND campanhas.status =1 AND campanhas_produtos.status =1 ";
